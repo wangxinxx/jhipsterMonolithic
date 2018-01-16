@@ -1,0 +1,13 @@
+{
+    "jhipsterMonolithicApp": {
+        "QuestionType" : {
+            "null": "",
+            "MULTIPLE_CHOICE": "MULTIPLE_CHOICE",
+            "MORE_MULTIPLE_CHOICE": "MORE_MULTIPLE_CHOICE",
+            "TRUE_FALSE": "TRUE_FALSE",
+            "FILL_BLANK": "FILL_BLANK",
+            "SHORT_ANSWER": "SHORT_ANSWER",
+            "ESSAY_QUESTIONS": "ESSAY_QUESTIONS"
+        }
+    }
+}

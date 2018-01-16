@@ -1,0 +1,27 @@
+{
+    "jhipsterMonolithicApp": {
+        "studyHistory" : {
+            "home": {
+                "title": "Study Histories",
+                "createLabel": "创建新 Study History",
+                "createOrEditLabel": "创建或编辑 Study History"
+            },
+            "created": "Study History {{ param }} 创建成功",
+            "updated": "Study History {{ param }} 更新成功",
+            "deleted": "Study History {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Study History {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Study History"
+            },
+            "userId": "User Id",
+            "kpointName": "Kpoint Name",
+            "playercount": "Playercount",
+            "databack": "Databack",
+            "updateTime": "Update Time",
+            "course": "Course",
+            "knowledgePoint": "Knowledge Point"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "jhipsterMonolithicApp": {
+        "baseAnswer" : {
+            "home": {
+                "title": "Base Answers",
+                "createLabel": "创建新 Base Answer",
+                "createOrEditLabel": "创建或编辑 Base Answer"
+            },
+            "created": "Base Answer {{ param }} 创建成功",
+            "updated": "Base Answer {{ param }} 更新成功",
+            "deleted": "Base Answer {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Base Answer {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Base Answer"
+            },
+            "content": "Content",
+            "result": "Result",
+            "question": "Question"
+        }
+    }
+}

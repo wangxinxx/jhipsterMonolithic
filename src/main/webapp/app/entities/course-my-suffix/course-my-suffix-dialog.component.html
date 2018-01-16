@@ -1,0 +1,118 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCourseLabel" jhiTranslate="jhipsterMonolithicApp.course.home.createOrEditLabel">Create or edit a Course</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!course.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="course.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="course.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.state" for="field_state">State</label>
+            <select class="form-control" name="state" [(ngModel)]="course.state" id="field_state" >
+                <option value="NORMAL">{{'jhipsterMonolithicApp.CourseState.NORMAL' | translate}}</option>
+                <option value="SOLDOUT">{{'jhipsterMonolithicApp.CourseState.SOLDOUT' | translate}}</option>
+                <option value="DELETE">{{'jhipsterMonolithicApp.CourseState.DELETE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.addAt" for="field_addAt">Add At</label>
+            <div class="d-flex">
+                <input id="field_addAt" type="datetime-local" class="form-control" name="addAt" [(ngModel)]="course.addAt"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.originalPrice" for="field_originalPrice">Original Price</label>
+            <input type="number" class="form-control" name="originalPrice" id="field_originalPrice"
+                [(ngModel)]="course.originalPrice" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="course.price" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.intro" for="field_intro">Intro</label>
+            <input type="text" class="form-control" name="intro" id="field_intro"
+                [(ngModel)]="course.intro" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.content" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                [(ngModel)]="course.content" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.classHour" for="field_classHour">Class Hour</label>
+            <input type="number" class="form-control" name="classHour" id="field_classHour"
+                [(ngModel)]="course.classHour" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.pictureUrl" for="field_pictureUrl">Picture Url</label>
+            <input type="text" class="form-control" name="pictureUrl" id="field_pictureUrl"
+                [(ngModel)]="course.pictureUrl" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.updateTime" for="field_updateTime">Update Time</label>
+            <div class="d-flex">
+                <input id="field_updateTime" type="datetime-local" class="form-control" name="updateTime" [(ngModel)]="course.updateTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.salesQuantity" for="field_salesQuantity">Sales Quantity</label>
+            <input type="number" class="form-control" name="salesQuantity" id="field_salesQuantity"
+                [(ngModel)]="course.salesQuantity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.pageViews" for="field_pageViews">Page Views</label>
+            <input type="number" class="form-control" name="pageViews" id="field_pageViews"
+                [(ngModel)]="course.pageViews" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.soldOutTime" for="field_soldOutTime">Sold Out Time</label>
+            <div class="d-flex">
+                <input id="field_soldOutTime" type="datetime-local" class="form-control" name="soldOutTime" [(ngModel)]="course.soldOutTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.soldOutState" for="field_soldOutState">Sold Out State</label>
+            <select class="form-control" name="soldOutState" [(ngModel)]="course.soldOutState" id="field_soldOutState" >
+                <option value="TIMEOUT">{{'jhipsterMonolithicApp.SoldOutState.TIMEOUT' | translate}}</option>
+                <option value="DAYOUT">{{'jhipsterMonolithicApp.SoldOutState.DAYOUT' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.validDays" for="field_validDays">Valid Days</label>
+            <input type="number" class="form-control" name="validDays" id="field_validDays"
+                [(ngModel)]="course.validDays" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.course.subject" for="field_subject">Subject</label>
+            <select class="form-control" id="field_subject" name="subject" [(ngModel)]="course.subjectId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

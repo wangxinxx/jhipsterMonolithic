@@ -1,0 +1,54 @@
+
+<div *ngIf="studyHistory">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.studyHistory.detail.title">Study History</span> {{studyHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.userId">User Id</span></dt>
+        <dd>
+            <span>{{studyHistory.userId}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.kpointName">Kpoint Name</span></dt>
+        <dd>
+            <span>{{studyHistory.kpointName}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.playercount">Playercount</span></dt>
+        <dd>
+            <span>{{studyHistory.playercount}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.databack">Databack</span></dt>
+        <dd>
+            <span>{{studyHistory.databack}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{studyHistory.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.course">Course</span></dt>
+        <dd>
+            <div *ngIf="studyHistory.courseId">
+                <a [routerLink]="['/course-my-suffix', studyHistory.courseId]">{{studyHistory.courseId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.studyHistory.knowledgePoint">Knowledge Point</span></dt>
+        <dd>
+            <div *ngIf="studyHistory.knowledgePointId">
+                <a [routerLink]="['/knowledge-point-my-suffix', studyHistory.knowledgePointId]">{{studyHistory.knowledgePointId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'study-history-my-suffix/'+ studyHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

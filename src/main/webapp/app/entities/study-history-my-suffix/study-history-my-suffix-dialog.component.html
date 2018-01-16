@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myStudyHistoryLabel" jhiTranslate="jhipsterMonolithicApp.studyHistory.home.createOrEditLabel">Create or edit a Study History</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!studyHistory.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="studyHistory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                [(ngModel)]="studyHistory.userId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.kpointName" for="field_kpointName">Kpoint Name</label>
+            <input type="text" class="form-control" name="kpointName" id="field_kpointName"
+                [(ngModel)]="studyHistory.kpointName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.playercount" for="field_playercount">Playercount</label>
+            <input type="number" class="form-control" name="playercount" id="field_playercount"
+                [(ngModel)]="studyHistory.playercount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.databack" for="field_databack">Databack</label>
+            <input type="text" class="form-control" name="databack" id="field_databack"
+                [(ngModel)]="studyHistory.databack" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.updateTime" for="field_updateTime">Update Time</label>
+            <div class="d-flex">
+                <input id="field_updateTime" type="datetime-local" class="form-control" name="updateTime" [(ngModel)]="studyHistory.updateTime"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.course" for="field_course">Course</label>
+            <select class="form-control" id="field_course" name="course" [(ngModel)]="studyHistory.courseId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="courseOption.id" *ngFor="let courseOption of courses; trackBy: trackCourseById">{{courseOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.studyHistory.knowledgePoint" for="field_knowledgePoint">Knowledge Point</label>
+            <select class="form-control" id="field_knowledgePoint" name="knowledgePoint" [(ngModel)]="studyHistory.knowledgePointId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="knowledgePointOption.id" *ngFor="let knowledgePointOption of knowledgepoints; trackBy: trackKnowledgePointById">{{knowledgePointOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

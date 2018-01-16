@@ -1,0 +1,100 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myKnowledgePointLabel" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.home.createOrEditLabel">Create or edit a Knowledge Point</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!knowledgePoint.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="knowledgePoint.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="knowledgePoint.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.addTime" for="field_addTime">Add Time</label>
+            <div class="d-flex">
+                <input id="field_addTime" type="datetime-local" class="form-control" name="addTime" [(ngModel)]="knowledgePoint.addTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.sort" for="field_sort">Sort</label>
+            <input type="number" class="form-control" name="sort" id="field_sort"
+                [(ngModel)]="knowledgePoint.sort" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playCount" for="field_playCount">Play Count</label>
+            <input type="number" class="form-control" name="playCount" id="field_playCount"
+                [(ngModel)]="knowledgePoint.playCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.free" for="field_free">Free</label>
+            <input type="checkbox" class="form-control" name="free" id="field_free"
+                [(ngModel)]="knowledgePoint.free" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.videoUrl" for="field_videoUrl">Video Url</label>
+            <input type="text" class="form-control" name="videoUrl" id="field_videoUrl"
+                [(ngModel)]="knowledgePoint.videoUrl" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playTime" for="field_playTime">Play Time</label>
+            <input type="text" class="form-control" name="playTime" id="field_playTime"
+                [(ngModel)]="knowledgePoint.playTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="knowledgePoint.type" id="field_type" >
+                <option value="VIDEO">{{'jhipsterMonolithicApp.KnowledgePointType.VIDEO' | translate}}</option>
+                <option value="FILE">{{'jhipsterMonolithicApp.KnowledgePointType.FILE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.fileType" for="field_fileType">File Type</label>
+            <input type="text" class="form-control" name="fileType" id="field_fileType"
+                [(ngModel)]="knowledgePoint.fileType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.content" for="field_content">Content</label>
+            <textarea class="form-control" name="content" id="field_content"
+                [(ngModel)]="knowledgePoint.content" ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.parent" for="field_parent">Parent</label>
+            <select class="form-control" id="field_parent" name="parent" [(ngModel)]="knowledgePoint.parentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="knowledgePointOption.id" *ngFor="let knowledgePointOption of knowledgepoints; trackBy: trackKnowledgePointById">{{knowledgePointOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.teacher" for="field_teacher">Teacher</label>
+            <select class="form-control" id="field_teacher" name="teacher" [(ngModel)]="knowledgePoint.teacherId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="teacherOption.id" *ngFor="let teacherOption of teachers; trackBy: trackTeacherById">{{teacherOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterMonolithicApp.knowledgePoint.course" for="field_course">Course</label>
+            <select class="form-control" id="field_course" name="course" [(ngModel)]="knowledgePoint.courseId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="courseOption.id" *ngFor="let courseOption of courses; trackBy: trackCourseById">{{courseOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

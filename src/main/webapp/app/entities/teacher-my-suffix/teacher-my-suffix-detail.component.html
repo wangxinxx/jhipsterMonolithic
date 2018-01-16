@@ -1,0 +1,68 @@
+
+<div *ngIf="teacher">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.teacher.detail.title">Teacher</span> {{teacher.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.userId">User Id</span></dt>
+        <dd>
+            <span>{{teacher.userId}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.name">Name</span></dt>
+        <dd>
+            <span>{{teacher.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.education">Education</span></dt>
+        <dd>
+            <span>{{teacher.education}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.career">Career</span></dt>
+        <dd>
+            <span>{{teacher.career}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.star">Star</span></dt>
+        <dd>
+            <span>{{teacher.star}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.picPath">Pic Path</span></dt>
+        <dd>
+            <span>{{teacher.picPath}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{teacher.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{teacher.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{teacher.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.sort">Sort</span></dt>
+        <dd>
+            <span>{{teacher.sort}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.teacher.subject">Subject</span></dt>
+        <dd>
+            <div *ngIf="teacher.subjectId">
+                <a [routerLink]="['/subject-my-suffix', teacher.subjectId]">{{teacher.subjectId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

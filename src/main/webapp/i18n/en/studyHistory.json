@@ -1,0 +1,27 @@
+{
+    "jhipsterMonolithicApp": {
+        "studyHistory" : {
+            "home": {
+                "title": "Study Histories",
+                "createLabel": "Create a new Study History",
+                "createOrEditLabel": "Create or edit a Study History"
+            },
+            "created": "A new Study History is created with identifier {{ param }}",
+            "updated": "A Study History is updated with identifier {{ param }}",
+            "deleted": "A Study History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Study History {{ id }}?"
+            },
+            "detail": {
+                "title": "Study History"
+            },
+            "userId": "User Id",
+            "kpointName": "Kpoint Name",
+            "playercount": "Playercount",
+            "databack": "Databack",
+            "updateTime": "Update Time",
+            "course": "Course",
+            "knowledgePoint": "Knowledge Point"
+        }
+    }
+}

@@ -1,0 +1,44 @@
+
+<div *ngIf="subject">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.subject.detail.title">Subject</span> {{subject.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.subject.name">Name</span></dt>
+        <dd>
+            <span>{{subject.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.subject.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.SubjectState.' + subject.status}}">{{subject.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.subject.createAt">Create At</span></dt>
+        <dd>
+            <span>{{subject.createAt | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.subject.sort">Sort</span></dt>
+        <dd>
+            <span>{{subject.sort}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.subject.parent">Parent</span></dt>
+        <dd>
+            <div *ngIf="subject.parentId">
+                <a [routerLink]="['/subject-my-suffix', subject.parentId]">{{subject.parentId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'subject-my-suffix/'+ subject.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

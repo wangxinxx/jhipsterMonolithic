@@ -1,0 +1,102 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.home.title">Knowledge Points</span>
+        <button class="btn btn-primary float-right jh-create-entity create-knowledge-point-my-suffix" [routerLink]="['/', { outlets: { popup: ['knowledge-point-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterMonolithicApp.knowledgePoint.home.createLabel">
+            Create new Knowledge Point
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="knowledgePoints">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addTime"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.addTime">Add Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sort"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.sort">Sort</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="playCount"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playCount">Play Count</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="free"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.free">Free</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="videoUrl"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.videoUrl">Video Url</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="playTime"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playTime">Play Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.type">Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fileType"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.fileType">File Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentId"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.parent">Parent</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="teacherId"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.teacher">Teacher</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="courseId"><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.course">Course</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let knowledgePoint of knowledgePoints ;trackBy: trackId">
+                <td><a [routerLink]="['../knowledge-point-my-suffix', knowledgePoint.id ]">{{knowledgePoint.id}}</a></td>
+                <td>{{knowledgePoint.name}}</td>
+                <td>{{knowledgePoint.addTime | date:'medium'}}</td>
+                <td>{{knowledgePoint.sort}}</td>
+                <td>{{knowledgePoint.playCount}}</td>
+                <td>{{knowledgePoint.free}}</td>
+                <td>{{knowledgePoint.videoUrl}}</td>
+                <td>{{knowledgePoint.playTime}}</td>
+                <td jhiTranslate="{{'jhipsterMonolithicApp.KnowledgePointType.' + knowledgePoint.type}}">{{knowledgePoint.type}}</td>
+                <td>{{knowledgePoint.fileType}}</td>
+                <td>{{knowledgePoint.content}}</td>
+                <td>
+                    <div *ngIf="knowledgePoint.parentId">
+                        <a [routerLink]="['../knowledge-point-my-suffix', knowledgePoint.parentId  ]" >{{knowledgePoint.parentId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="knowledgePoint.teacherId">
+                        <a [routerLink]="['../teacher-my-suffix', knowledgePoint.teacherId  ]" >{{knowledgePoint.teacherId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="knowledgePoint.courseId">
+                        <a [routerLink]="['../course-my-suffix', knowledgePoint.courseId  ]" >{{knowledgePoint.courseId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../knowledge-point-my-suffix', knowledgePoint.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'knowledge-point-my-suffix/'+ knowledgePoint.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'knowledge-point-my-suffix/'+ knowledgePoint.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="knowledgePoints && knowledgePoints.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "jhipsterMonolithicApp": {
+        "CourseState" : {
+            "null": "",
+            "NORMAL": "NORMAL",
+            "SOLDOUT": "SOLDOUT",
+            "DELETE": "DELETE"
+        }
+    }
+}

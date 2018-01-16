@@ -1,0 +1,88 @@
+
+<div *ngIf="course">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.course.detail.title">Course</span> {{course.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.name">Name</span></dt>
+        <dd>
+            <span>{{course.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.state">State</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.CourseState.' + course.state}}">{{course.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.addAt">Add At</span></dt>
+        <dd>
+            <span>{{course.addAt | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.originalPrice">Original Price</span></dt>
+        <dd>
+            <span>{{course.originalPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.price">Price</span></dt>
+        <dd>
+            <span>{{course.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.intro">Intro</span></dt>
+        <dd>
+            <span>{{course.intro}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.content">Content</span></dt>
+        <dd>
+            <span>{{course.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.classHour">Class Hour</span></dt>
+        <dd>
+            <span>{{course.classHour}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.pictureUrl">Picture Url</span></dt>
+        <dd>
+            <span>{{course.pictureUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{course.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.salesQuantity">Sales Quantity</span></dt>
+        <dd>
+            <span>{{course.salesQuantity}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.pageViews">Page Views</span></dt>
+        <dd>
+            <span>{{course.pageViews}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.soldOutTime">Sold Out Time</span></dt>
+        <dd>
+            <span>{{course.soldOutTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.soldOutState">Sold Out State</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.SoldOutState.' + course.soldOutState}}">{{course.soldOutState}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.validDays">Valid Days</span></dt>
+        <dd>
+            <span>{{course.validDays}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.course.subject">Subject</span></dt>
+        <dd>
+            <div *ngIf="course.subjectId">
+                <a [routerLink]="['/subject-my-suffix', course.subjectId]">{{course.subjectId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'course-my-suffix/'+ course.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

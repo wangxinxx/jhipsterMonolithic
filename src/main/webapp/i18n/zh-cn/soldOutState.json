@@ -1,0 +1,9 @@
+{
+    "jhipsterMonolithicApp": {
+        "SoldOutState" : {
+            "null": "",
+            "TIMEOUT": "TIMEOUT",
+            "DAYOUT": "DAYOUT"
+        }
+    }
+}

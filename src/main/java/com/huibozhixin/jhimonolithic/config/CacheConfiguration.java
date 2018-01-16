@@ -41,6 +41,21 @@ public class CacheConfiguration {
             cm.createCache(com.huibozhixin.jhimonolithic.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.huibozhixin.jhimonolithic.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.huibozhixin.jhimonolithic.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Course.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Subject.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Subject.class.getName() + ".children", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Course.class.getName() + ".knowledgePoints", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Subject.class.getName() + ".courses", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Subject.class.getName() + ".teachers", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.Teacher.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.KnowledgePoint.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.KnowledgePoint.class.getName() + ".children", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.StudyHistory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.BaseQuestion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.BaseQuestion.class.getName() + ".answers", jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.BaseAnswer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.UserAnswer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.huibozhixin.jhimonolithic.domain.UserAnswerStatistics.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

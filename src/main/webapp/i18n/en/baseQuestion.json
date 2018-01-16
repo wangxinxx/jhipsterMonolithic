@@ -1,0 +1,33 @@
+{
+    "jhipsterMonolithicApp": {
+        "baseQuestion" : {
+            "home": {
+                "title": "Base Questions",
+                "createLabel": "Create a new Base Question",
+                "createOrEditLabel": "Create or edit a Base Question"
+            },
+            "created": "A new Base Question is created with identifier {{ param }}",
+            "updated": "A Base Question is updated with identifier {{ param }}",
+            "deleted": "A Base Question is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Base Question {{ id }}?"
+            },
+            "detail": {
+                "title": "Base Question"
+            },
+            "name": "Name",
+            "content": "Content",
+            "type": "Type",
+            "difficult": "Difficult",
+            "courseId": "Course Id",
+            "exposeTimes": "Expose Times",
+            "rightTimes": "Right Times",
+            "wrongTimes": "Wrong Times",
+            "tips": "Tips",
+            "tags": "Tags",
+            "judgeResult": "Judge Result",
+            "textResult": "Text Result",
+            "answers": "Answers"
+        }
+    }
+}

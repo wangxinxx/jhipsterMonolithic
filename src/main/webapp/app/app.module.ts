@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
+// Core providers
+import {CoreModule} from "./core/core.module";
+import {SmartadminLayoutModule} from "./shared/layout/layout.module";
+
 import { JhipsterMonolithicSharedModule, UserRouteAccessService } from './shared';
 import { JhipsterMonolithicAppRoutingModule} from './app-routing.module';
 import { JhipsterMonolithicHomeModule } from './home/home.module';
@@ -35,6 +39,8 @@ import {
         JhipsterMonolithicAdminModule,
         JhipsterMonolithicAccountModule,
         JhipsterMonolithicEntityModule,
+        CoreModule,
+        SmartadminLayoutModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -43,7 +49,7 @@ import {
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
-        FooterComponent
+        FooterComponent,
     ],
     providers: [
         ProfileService,

@@ -1,0 +1,88 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "knowledgePoints",
+            "otherEntityName": "knowledgePoint",
+            "otherEntityRelationshipName": "course"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "subject",
+            "otherEntityName": "subject",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "CourseState",
+            "fieldValues": "NORMAL,SOLDOUT,DELETE"
+        },
+        {
+            "fieldName": "addAt",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "originalPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intro",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classHour",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "pictureUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "updateTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "salesQuantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pageViews",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "soldOutTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "soldOutState",
+            "fieldType": "SoldOutState",
+            "fieldValues": "TIMEOUT,DAYOUT"
+        },
+        {
+            "fieldName": "validDays",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20171219213632",
+    "entityTableName": "course",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

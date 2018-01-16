@@ -7,6 +7,15 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "数据",
+                "courseMySuffix": "Course",
+                "subjectMySuffix": "Subject",
+                "teacherMySuffix": "Teacher",
+                "knowledgePointMySuffix": "Knowledge Point",
+                "studyHistoryMySuffix": "Study History",
+                "baseQuestionExam": "Base Question",
+                "baseAnswerExam": "Base Answer",
+                "userAnswerExam": "User Answer",
+                "userAnswerStatisticsExam": "User Answer Statistics",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

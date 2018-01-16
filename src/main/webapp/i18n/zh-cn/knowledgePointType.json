@@ -1,0 +1,9 @@
+{
+    "jhipsterMonolithicApp": {
+        "KnowledgePointType" : {
+            "null": "",
+            "VIDEO": "VIDEO",
+            "FILE": "FILE"
+        }
+    }
+}

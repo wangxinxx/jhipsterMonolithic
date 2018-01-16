@@ -1,0 +1,26 @@
+{
+    "jhipsterMonolithicApp": {
+        "userAnswerStatistics" : {
+            "home": {
+                "title": "User Answer Statistics",
+                "createLabel": "Create a new User Answer Statistics",
+                "createOrEditLabel": "Create or edit a User Answer Statistics"
+            },
+            "created": "A new User Answer Statistics is created with identifier {{ param }}",
+            "updated": "A User Answer Statistics is updated with identifier {{ param }}",
+            "deleted": "A User Answer Statistics is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Answer Statistics {{ id }}?"
+            },
+            "detail": {
+                "title": "User Answer Statistics"
+            },
+            "userId": "User Id",
+            "rightTimes": "Right Times",
+            "wrongTimes": "Wrong Times",
+            "continuousRightTimes": "Continuous Right Times",
+            "continuousWrongTimes": "Continuous Wrong Times",
+            "question": "Question"
+        }
+    }
+}

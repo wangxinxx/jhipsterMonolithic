@@ -1,0 +1,9 @@
+{
+    "jhipsterMonolithicApp": {
+        "SubjectState" : {
+            "null": "",
+            "ENABLE": "ENABLE",
+            "DISABLE": "DISABLE"
+        }
+    }
+}

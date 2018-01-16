@@ -1,0 +1,80 @@
+
+<div *ngIf="knowledgePoint">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.detail.title">Knowledge Point</span> {{knowledgePoint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.name">Name</span></dt>
+        <dd>
+            <span>{{knowledgePoint.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.addTime">Add Time</span></dt>
+        <dd>
+            <span>{{knowledgePoint.addTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.sort">Sort</span></dt>
+        <dd>
+            <span>{{knowledgePoint.sort}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playCount">Play Count</span></dt>
+        <dd>
+            <span>{{knowledgePoint.playCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.free">Free</span></dt>
+        <dd>
+            <span>{{knowledgePoint.free}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.videoUrl">Video Url</span></dt>
+        <dd>
+            <span>{{knowledgePoint.videoUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.playTime">Play Time</span></dt>
+        <dd>
+            <span>{{knowledgePoint.playTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.KnowledgePointType.' + knowledgePoint.type}}">{{knowledgePoint.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.fileType">File Type</span></dt>
+        <dd>
+            <span>{{knowledgePoint.fileType}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.content">Content</span></dt>
+        <dd>
+            <span>{{knowledgePoint.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.parent">Parent</span></dt>
+        <dd>
+            <div *ngIf="knowledgePoint.parentId">
+                <a [routerLink]="['/knowledge-point-my-suffix', knowledgePoint.parentId]">{{knowledgePoint.parentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.teacher">Teacher</span></dt>
+        <dd>
+            <div *ngIf="knowledgePoint.teacherId">
+                <a [routerLink]="['/teacher-my-suffix', knowledgePoint.teacherId]">{{knowledgePoint.teacherId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.knowledgePoint.course">Course</span></dt>
+        <dd>
+            <div *ngIf="knowledgePoint.courseId">
+                <a [routerLink]="['/course-my-suffix', knowledgePoint.courseId]">{{knowledgePoint.courseId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'knowledge-point-my-suffix/'+ knowledgePoint.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,70 @@
+
+<div *ngIf="baseQuestion">
+    <h2><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.detail.title">Base Question</span> {{baseQuestion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.name">Name</span></dt>
+        <dd>
+            <span>{{baseQuestion.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.content">Content</span></dt>
+        <dd>
+            <span>{{baseQuestion.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.QuestionType.' + baseQuestion.type}}">{{baseQuestion.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.difficult">Difficult</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterMonolithicApp.QuestionDifficult.' + baseQuestion.difficult}}">{{baseQuestion.difficult}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.courseId">Course Id</span></dt>
+        <dd>
+            <span>{{baseQuestion.courseId}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.exposeTimes">Expose Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.exposeTimes}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.rightTimes">Right Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.rightTimes}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.wrongTimes">Wrong Times</span></dt>
+        <dd>
+            <span>{{baseQuestion.wrongTimes}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.tips">Tips</span></dt>
+        <dd>
+            <span>{{baseQuestion.tips}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.tags">Tags</span></dt>
+        <dd>
+            <span>{{baseQuestion.tags}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.judgeResult">Judge Result</span></dt>
+        <dd>
+            <span>{{baseQuestion.judgeResult}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.textResult">Text Result</span></dt>
+        <dd>
+            <span>{{baseQuestion.textResult}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

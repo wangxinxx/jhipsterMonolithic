@@ -1,0 +1,88 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterMonolithicApp.baseQuestion.home.title">Base Questions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-base-question-exam" [routerLink]="['/', { outlets: { popup: ['base-question-exam-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterMonolithicApp.baseQuestion.home.createLabel">
+            Create new Base Question
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="baseQuestions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.type">Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="difficult"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.difficult">Difficult</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="courseId"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.courseId">Course Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="exposeTimes"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.exposeTimes">Expose Times</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="rightTimes"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.rightTimes">Right Times</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="wrongTimes"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.wrongTimes">Wrong Times</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tips"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.tips">Tips</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tags"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.tags">Tags</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="judgeResult"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.judgeResult">Judge Result</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="textResult"><span jhiTranslate="jhipsterMonolithicApp.baseQuestion.textResult">Text Result</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let baseQuestion of baseQuestions ;trackBy: trackId">
+                <td><a [routerLink]="['../base-question-exam', baseQuestion.id ]">{{baseQuestion.id}}</a></td>
+                <td>{{baseQuestion.name}}</td>
+                <td>{{baseQuestion.content}}</td>
+                <td jhiTranslate="{{'jhipsterMonolithicApp.QuestionType.' + baseQuestion.type}}">{{baseQuestion.type}}</td>
+                <td jhiTranslate="{{'jhipsterMonolithicApp.QuestionDifficult.' + baseQuestion.difficult}}">{{baseQuestion.difficult}}</td>
+                <td>{{baseQuestion.courseId}}</td>
+                <td>{{baseQuestion.exposeTimes}}</td>
+                <td>{{baseQuestion.rightTimes}}</td>
+                <td>{{baseQuestion.wrongTimes}}</td>
+                <td>{{baseQuestion.tips}}</td>
+                <td>{{baseQuestion.tags}}</td>
+                <td>{{baseQuestion.judgeResult}}</td>
+                <td>{{baseQuestion.textResult}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../base-question-exam', baseQuestion.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'base-question-exam/'+ baseQuestion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="baseQuestions && baseQuestions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

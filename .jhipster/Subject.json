@@ -1,0 +1,55 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "courses",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "subject"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "teachers",
+            "otherEntityName": "teacher",
+            "otherEntityRelationshipName": "subject"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "subject",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "children",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "parent"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "SubjectState",
+            "fieldValues": "ENABLE,DISABLE"
+        },
+        {
+            "fieldName": "createAt",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "sort",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171219213633",
+    "entityTableName": "subject",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

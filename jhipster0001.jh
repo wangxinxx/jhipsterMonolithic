@@ -1,0 +1,148 @@
+// JDL definition for application 'jhipsterMonolithic' generated with command 'jhipster export-jdl'
+
+entity Course (course) {
+  name String,
+  state CourseState,
+  addAt Instant,
+  originalPrice BigDecimal,
+  price BigDecimal,
+  intro String,
+  content String,
+  classHour Float,
+  pictureUrl String,
+  updateTime Instant,
+  salesQuantity Long,
+  pageViews Long,
+  soldOutTime Instant,
+  soldOutState SoldOutState,
+  validDays Long
+}
+entity Subject (subject) {
+  name String,
+  status SubjectState,
+  createAt Instant,
+  sort Integer
+}
+entity Teacher (teacher) {
+  userId Long,
+  name String,
+  education String,
+  career String,
+  star Integer,
+  picPath String,
+  deleted Boolean,
+  createTime Instant,
+  updateTime Instant,
+  sort Integer
+}
+entity KnowledgePoint (knowledge_point) {
+  name String,
+  addTime Instant,
+  sort Integer,
+  playCount Long,
+  free Boolean,
+  videoUrl String,
+  playTime String,
+  type KnowledgePointType,
+  fileType String,
+  content TextBlob
+}
+entity StudyHistory (study_history) {
+  userId Long,
+  kpointName String,
+  playercount Long,
+  databack String,
+  updateTime Instant
+}
+entity BaseQuestion (base_question) {
+  name String,
+  content TextBlob,
+  type QuestionType,
+  difficult QuestionDifficult,
+  courseId Long,
+  exposeTimes Long,
+  rightTimes Long,
+  wrongTimes Long,
+  tips String,
+  tags String,
+  judgeResult Boolean,
+  textResult TextBlob
+}
+entity BaseAnswer (base_answer) {
+  content String,
+  result Boolean
+}
+entity UserAnswer (user_answer) {
+  userId Long,
+  judgeAnswer Boolean,
+  textAnswer TextBlob,
+  choiceAnswerIds String,
+  result Boolean
+}
+entity UserAnswerStatistics (user_answer_statistics) {
+  userId Long,
+  rightTimes Long,
+  wrongTimes Long,
+  continuousRightTimes Long,
+  continuousWrongTimes Long
+}
+
+enum CourseState {
+  NORMAL,
+  SOLDOUT,
+  DELETE
+}
+
+enum SoldOutState {
+  TIMEOUT,
+  DAYOUT
+}
+
+enum SubjectState {
+  ENABLE,
+  DISABLE
+}
+
+enum KnowledgePointType {
+  VIDEO,
+  FILE
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE,
+  MORE_MULTIPLE_CHOICE,
+  TRUE_FALSE,
+  FILL_BLANK,
+  SHORT_ANSWER,
+  ESSAY_QUESTIONS
+}
+
+enum QuestionDifficult {
+  SO_EASY,
+  EASY,
+  NORMAL,
+  HARD,
+  VERY_HARD
+}
+
+relationship OneToMany {
+  Subject{courses} to Course{subject},
+  Subject{children} to Subject{parent},
+  Subject{teachers} to Teacher{subject},
+  KnowledgePoint{children} to KnowledgePoint{parent},
+  Course{knowledgePoints} to KnowledgePoint{course},
+  BaseQuestion{answers} to BaseAnswer{question}
+}
+relationship ManyToOne {
+  KnowledgePoint{teacher} to Teacher,
+  StudyHistory{course} to Course,
+  StudyHistory{knowledgePoint} to KnowledgePoint,
+  UserAnswer{question} to BaseQuestion,
+  UserAnswerStatistics{question} to BaseQuestion
+}
+
+dto Course, Subject, Teacher, KnowledgePoint, StudyHistory, BaseQuestion, BaseAnswer, UserAnswer, UserAnswerStatistics with mapstruct
+paginate Course, Subject, Teacher, KnowledgePoint, StudyHistory, BaseQuestion, BaseAnswer, UserAnswer, UserAnswerStatistics with pagination
+service Course, Subject, Teacher, KnowledgePoint, StudyHistory, BaseQuestion, BaseAnswer, UserAnswer, UserAnswerStatistics with serviceImpl
+angularSuffix Course, Subject, Teacher, KnowledgePoint, StudyHistory with mySuffix
+angularSuffix BaseQuestion, BaseAnswer, UserAnswer, UserAnswerStatistics with exam

@@ -1,0 +1,34 @@
+{
+    "jhipsterMonolithicApp": {
+        "knowledgePoint" : {
+            "home": {
+                "title": "Knowledge Points",
+                "createLabel": "Create a new Knowledge Point",
+                "createOrEditLabel": "Create or edit a Knowledge Point"
+            },
+            "created": "A new Knowledge Point is created with identifier {{ param }}",
+            "updated": "A Knowledge Point is updated with identifier {{ param }}",
+            "deleted": "A Knowledge Point is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Knowledge Point {{ id }}?"
+            },
+            "detail": {
+                "title": "Knowledge Point"
+            },
+            "name": "Name",
+            "addTime": "Add Time",
+            "sort": "Sort",
+            "playCount": "Play Count",
+            "free": "Free",
+            "videoUrl": "Video Url",
+            "playTime": "Play Time",
+            "type": "Type",
+            "fileType": "File Type",
+            "content": "Content",
+            "parent": "Parent",
+            "teacher": "Teacher",
+            "course": "Course",
+            "children": "Children"
+        }
+    }
+}

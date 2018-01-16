@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterMonolithicApp.studyHistory.home.title">Study Histories</span>
+        <button class="btn btn-primary float-right jh-create-entity create-study-history-my-suffix" [routerLink]="['/', { outlets: { popup: ['study-history-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterMonolithicApp.studyHistory.home.createLabel">
+            Create new Study History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="studyHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userId"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.userId">User Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="kpointName"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.kpointName">Kpoint Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="playercount"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.playercount">Playercount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="databack"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.databack">Databack</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="courseId"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.course">Course</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="knowledgePointId"><span jhiTranslate="jhipsterMonolithicApp.studyHistory.knowledgePoint">Knowledge Point</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let studyHistory of studyHistories ;trackBy: trackId">
+                <td><a [routerLink]="['../study-history-my-suffix', studyHistory.id ]">{{studyHistory.id}}</a></td>
+                <td>{{studyHistory.userId}}</td>
+                <td>{{studyHistory.kpointName}}</td>
+                <td>{{studyHistory.playercount}}</td>
+                <td>{{studyHistory.databack}}</td>
+                <td>{{studyHistory.updateTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="studyHistory.courseId">
+                        <a [routerLink]="['../course-my-suffix', studyHistory.courseId  ]" >{{studyHistory.courseId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="studyHistory.knowledgePointId">
+                        <a [routerLink]="['../knowledge-point-my-suffix', studyHistory.knowledgePointId  ]" >{{studyHistory.knowledgePointId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../study-history-my-suffix', studyHistory.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'study-history-my-suffix/'+ studyHistory.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'study-history-my-suffix/'+ studyHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="studyHistories && studyHistories.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

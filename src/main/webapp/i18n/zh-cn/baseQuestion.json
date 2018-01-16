@@ -1,0 +1,33 @@
+{
+    "jhipsterMonolithicApp": {
+        "baseQuestion" : {
+            "home": {
+                "title": "Base Questions",
+                "createLabel": "创建新 Base Question",
+                "createOrEditLabel": "创建或编辑 Base Question"
+            },
+            "created": "Base Question {{ param }} 创建成功",
+            "updated": "Base Question {{ param }} 更新成功",
+            "deleted": "Base Question {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Base Question {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Base Question"
+            },
+            "name": "Name",
+            "content": "Content",
+            "type": "Type",
+            "difficult": "Difficult",
+            "courseId": "Course Id",
+            "exposeTimes": "Expose Times",
+            "rightTimes": "Right Times",
+            "wrongTimes": "Wrong Times",
+            "tips": "Tips",
+            "tags": "Tags",
+            "judgeResult": "Judge Result",
+            "textResult": "Text Result",
+            "answers": "Answers"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "jhipsterMonolithicApp": {
+        "baseAnswer" : {
+            "home": {
+                "title": "Base Answers",
+                "createLabel": "Create a new Base Answer",
+                "createOrEditLabel": "Create or edit a Base Answer"
+            },
+            "created": "A new Base Answer is created with identifier {{ param }}",
+            "updated": "A Base Answer is updated with identifier {{ param }}",
+            "deleted": "A Base Answer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Base Answer {{ id }}?"
+            },
+            "detail": {
+                "title": "Base Answer"
+            },
+            "content": "Content",
+            "result": "Result",
+            "question": "Question"
+        }
+    }
+}
